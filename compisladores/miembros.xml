@@ -1,0 +1,23 @@
+<grupo>
+  <nombre>compisladores</nombre>
+  <url>https://svn.riouxsvn.com/compisladores</url>
+  <miembro>
+    <nombre>Alejandro Cordoba Bodhert</nombre>
+    <codigo>201510039010</codigo>
+    <email>acordob5@eafit.edu.co</email>
+  </miembro>
+  <miembro>
+    <!--datos de orlando -->
+    <nombre></nombre>
+    <codigo></codigo>
+    <email></email>
+  </miembro>
+  <!--datos de esteban -->
+  <miembro>
+    <nombre></nombre>
+    <codigo></codigo>
+    <email></email>
+  </miembro>
+  
+  <mainclass clase="MainsisctrdocenteLexer"/>
+</grupo>
