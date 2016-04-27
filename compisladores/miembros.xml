@@ -14,9 +14,9 @@
   </miembro>
   <!--datos de esteban -->
   <miembro>
-    <nombre></nombre>
-    <codigo></codigo>
-    <email></email>
+    <nombre>Esteban Silva Chaparro</nombre>
+    <codigo>201410026010</codigo>
+    <email>esilvac@eafit.edu.co</email>
   </miembro>
   
   <mainclass clase="MainsisctrdocenteLexer"/>
