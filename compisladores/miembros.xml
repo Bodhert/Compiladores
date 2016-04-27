@@ -7,10 +7,10 @@
     <email>acordob5@eafit.edu.co</email>
   </miembro>
   <miembro>
-    <!--datos de orlando -->
-    <nombre></nombre>
-    <codigo></codigo>
-    <email></email>
+   
+    <nombre>Orlando Montoya Benitez</nombre>
+    <codigo>201417506010</codigo>
+    <email>omontoy3@eafit.edu.co</email>
   </miembro>
   <!--datos de esteban -->
   <miembro>
@@ -20,4 +20,5 @@
   </miembro>
   
   <mainclass clase="MainsisctrdocenteLexer"/>
+  <!-- Preguntar que se pone en el main --> 
 </grupo>
