@@ -1,14 +1,11 @@
-/*
- * Decompiled with CFR 0_114.
- */
-package co.edu.eafit.dis.st0270.s2016.sisctr.token;
+
+package co.edu.eafit.dis.st0270.s2016.compisladores.token;
 
 import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
 
-public abstract class OperatorToken
+public  class COOperatorToken
 extends SCToken {
     public OperatorToken(int column, int line, String text) {
         super(column, line, text);
     }
 }
-
