@@ -1,9 +1,7 @@
-/*
- * Decompiled with CFR 0_114.
- */
-package co.edu.eafit.dis.st0270.s2016.sisctr.token;
 
-import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
+package co.edu.eafit.dis.st0270.s2016.compisladores.token;
+
+import co.edu.eafit.dis.st0270.s2016.sisctr.compisladores.SCToken;
 
 public abstract class ReservedWordToken
 extends SCToken {

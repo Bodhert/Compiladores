@@ -1,12 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>co.edu.eafit.dis.st0270.s2016.compisladores</groupId>
   <artifactId>compisladores</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>compisladores</name>
   <url>http://maven.apache.org</url>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -14,5 +17,113 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>co.edu.eafit.dis.st0270.s2016.sisctr</groupId>
+      <artifactId>sisctr</artifactId>
+      <version>1.0.4</version> 
+    </dependency>
+     <dependency>
+      <groupId>org.antlr</groupId>
+      <artifactId>antlr4-maven-plugin</artifactId>
+      <version>4.5.3</version>
+      <type>maven-plugin</type>
+    </dependency>
   </dependencies>
+  
+  <build>
+    <plugins>
+      
+      <plugin>
+	<groupId>de.jflex</groupId>
+	<artifactId>jflex-maven-plugin</artifactId>
+	<version>1.6.1</version>
+	<executions>
+	  <execution>
+	    <goals>
+	      <goal>generate</goal>
+	    </goals>
+	    <configuration>
+	      <outputDirectory>src/main/java</outputDirectory>
+	    </configuration>
+	  </execution>
+	</executions>
+      </plugin>
+      
+      <plugin>
+	<groupId>org.antlr</groupId>
+	<artifactId>antlr4-maven-plugin</artifactId>
+	<version>4.5.3</version>
+	<executions>
+	  <execution>
+	    <id>antlr</id>
+	    <goals>
+	      <goal>antlr4</goal>
+	    </goals>
+	    <configuration>
+	      <conversionTimeout>10000</conversionTimeout>
+	      <debug>false</debug>
+	      <dfa>false</dfa>
+	      <nfa>false</nfa>
+	      <libDirectory>src/main/antlr4/imports</libDirectory>
+	      <messageFormat>antlr</messageFormat>
+	      <outputDirectory>src/main/java/co/edu/eafit/dis/st0270/jaycompiler/lexer</outputDirectory>
+	      <printGrammar>false</printGrammar>
+	      <profile>false</profile>
+	      <report>false</report>
+	      <sourceDirectory>src/main/antlr4</sourceDirectory>
+	      <trace>false</trace>
+	      <verbose>true</verbose>
+	      <filesets>
+		<fileset>
+		  <includes>
+		    <include>JayLexer.g4</include>
+		  </includes>
+		</fileset>
+	      </filesets>
+	    </configuration>
+	  </execution>
+	</executions>
+      </plugin>
+      
+      <plugin>
+	<artifactId>maven-clean-plugin</artifactId>
+	<version>2.6.1</version>
+	<configuration>
+	  
+	  <filesets>
+	    <fileset>
+	      <directory>src/main/java/co/edu/eafit/dis/st0270/s2016/compisladores/lexer/</directory>
+	      <includes>
+		<include>**/*.java</include>
+		<include>**/*.tokens</include>
+	      </includes>
+	      <excludes>
+		<exclude>**/.java</exclude>
+	      </excludes>
+	      <followSymlinks>false</followSymlinks>
+	    </fileset>
+	    <fileset>
+	      
+	      <directory>src/main/java/co/edu/eafit/dis/st0270/jaycompiler/lexer/</directory>
+	      <includes>
+		<include>**/*.java</include>
+		<include>**/*.tokens</include>
+	      </includes>
+	      <followSymlinks>false</followSymlinks>
+	    </fileset>
+	    <fileset>
+	      
+	      <directory>src/main/java/co/edu/eafit/dis/st0270/jaycompiler/jflex/</directory>
+	      <includes>
+		<include>**/*.java</include>
+	      </includes>
+	      <followSymlinks>false</followSymlinks>
+	    </fileset>
+	  </filesets>  
+	</configuration>
+      </plugin>
+      
+    </plugins>
+  </build>
+  
 </project>
