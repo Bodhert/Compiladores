@@ -36,7 +36,7 @@
       <plugin>
 	<groupId>de.jflex</groupId>
 	<artifactId>jflex-maven-plugin</artifactId>
-	<version>1.6.1</version>
+	<version>1.6.1</version> <!--como hago para pasarme ha la 1.6.1 si no me genera el goal -->
 	<executions>
 	  <execution>
 	    <goals>
