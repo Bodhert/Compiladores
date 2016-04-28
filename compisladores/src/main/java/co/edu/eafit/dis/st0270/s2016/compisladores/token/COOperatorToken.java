@@ -5,7 +5,9 @@ import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
 
 public  class COOperatorToken
     extends OperatorToken {
+    
     public enum EnumOperator {
+	
 	LANG,
 	RANG,
 	LCOR,
@@ -24,19 +26,16 @@ public  class COOperatorToken
 	AT,
 	ASSING,
 	TWOP
-
-extends OperatorToken {
-    public OperatorToken(int column, int line, String text) {
-        super(column, line, text);
-    }
-
+    };
+    
     private EnumOperator eOp;
 
-    public OperatorToken(String operator, int linea, int column) {
-	super(column,linea,operator);
+    public OperatorToken(int column, int line, String text) {
+	super(column, line, text);
 	this.eOp = getEOP();
     }
 
+	    
     private EnumOperator getEOP() {
 	if (operator.compareTo("[")==0)
 	    return EnumOperator.LANG;
@@ -54,7 +53,7 @@ extends OperatorToken {
 	    return EnumOperator.LTUPLA;
 	if (operator.compareTo(">")==0)
 	    return EnumOperator.RTUPLA;
-       	if (operator.compareTo("+") == 0)
+	if (operator.compareTo("+") == 0)
 	    return EnumOperator.PLUS;
 	if (operator.compareTo("-") == 0)
 	    return EnumOperator.MINUS;
@@ -89,3 +88,4 @@ extends OperatorToken {
 	return "Operator: " + id + " Linea: " + line +  "Columna: " + column;
     }
 }
+	
