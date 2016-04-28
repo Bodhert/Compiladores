@@ -30,7 +30,6 @@ extends OperatorToken {
         super(column, line, text);
     }
 
-    private String operator;
     private EnumOperator eOp;
 
     public OperatorToken(String operator, int linea, int column) {
