@@ -17,7 +17,6 @@
     <email>esilvac@eafit.edu.co</email>
   </miembro>
   
-  <mainclass clase="MainsisctrdocenteLexer"/>
-  <!-- Preguntar que se pone en el main --> 
+  <mainclass clase="MaincompisladoresLexer"/> 
 </grupo>
 
