@@ -16,4 +16,32 @@ import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSpecialSymbolToken;
 %function getNextToken
 %type Token
 %public
+
+LineTerminator = \r|\n|\r\n
+InputCharacter = [^\r\n]
+WhiteSpace     = {LineTerminator} | [ \t\n\f\r]
+
+Comment              = {TraditionalComment} | {EndOfLineComment} | {DocumentationComment}
+TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+EndOfLineComment     = "//" {InputCharacter}* {LineTerminator}
+DocumentationComment = "/**" {CommentContent} "*"+ "/"
+CommentContent       = ( [^*] | \*+ [^/*] )*
+
+Operator = "[" | "]" | "{" | "}" |"("| ")" | "<" | ">" | "+" | "-"
+	       | "*" | "/" | ">>=" | ">>" | "|" | "@" | "=" | ":"
+
+ReservedWord = "disp" | "input" | "let" | "Int"
+
+SeparatorWord = ","
+
+SpecialSymbol = "()" | "_"
+
 %%
+
+<YYINITIAL> {
+ {SpecialSymbol} =  {return new COSpecialSymbolToken(yycolumn,yyline,yytext());}
+ {SeparatorWord} =  {return new COSeparatorWord(yycolumn,yyline,yytext()); }
+ {ReservedWord}  =  {return new COReservedWordToken(yycolumn,yyline,yytext());}
+ {Operator} 	 =  {retrun new 	    
+
+}
