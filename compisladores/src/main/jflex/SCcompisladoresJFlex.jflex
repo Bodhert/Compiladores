@@ -34,7 +34,9 @@ ReservedWord = "disp" | "input" | "let" | "Int"
 
 SeparatorWord = ","
 
-SpecialSymbol = "()" | "_"
+SpecialSymbol = "()"
+
+LiteralToken = "_"
 
 %%
 
@@ -42,6 +44,8 @@ SpecialSymbol = "()" | "_"
  {SpecialSymbol} =  {return new COSpecialSymbolToken(yycolumn,yyline,yytext());}
  {SeparatorWord} =  {return new COSeparatorWord(yycolumn,yyline,yytext()); }
  {ReservedWord}  =  {return new COReservedWordToken(yycolumn,yyline,yytext());}
- {Operator} 	 =  {retrun new 	    
-
+ {Operator} 	 =  {return new COOperatorToken(yycolumn,yyline,yytext());}
+ {WhiteSpace}	    {/*ignore*/}
+ {Comment}	    {/*ignore*/}
 }
+.|\n		 { throw new Error("Illegal character <" + yytext() + "> at line: " + (yyline + 1) + " column: " + yycolumn); }
