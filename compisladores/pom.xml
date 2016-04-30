@@ -124,6 +124,49 @@
 	</configuration>
       </plugin>
       
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <executions>
+          <execution>
+	    <id>jflex-exec</id>
+            <goals>
+              <goal>java</goal>
+            </goals>
+	    <configuration>
+	      <mainClass>co.edu.eafit.dis.st0270.s2016.compisladores.MaincompisladoresLexer</mainClass>
+              <arguments>
+		<argument>src/examples/prueba1</argument>
+              </arguments>
+            </configuration>
+          </execution>
+	  <execution>
+	    <id>jflex-exec2</id>
+            <goals>
+              <goal>java</goal>
+            </goals>
+	    <configuration>
+	      <mainClass>co.edu.eafit.dis.st0270.jaycompiler.JayCompilerLexerJFlex</mainClass>
+              <arguments>
+		<argument>examples/Example-01-Fail.jay</argument>
+              </arguments>
+            </configuration>
+          </execution>
+	  <execution>
+	    <id>antlr4-exec</id>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <configuration>
+              <mainClass>co.edu.eafit.dis.st0270.s2016.compisladores.MaincompisladoresLexer</mainClass>
+              <arguments>
+		<argument>src/examples/prueba1</argument>
+              </arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>      
     </plugins>
   </build>
   

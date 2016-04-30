@@ -24,6 +24,13 @@ public class MaincompisladoresLexer
 		//
 	    }else if(args[0] == "both"){
 		//llamo a ambos
+	    }else{
+		String fichero [] = new String[args.length];
+		for(int i = 0; i < args.length; i++){
+		    fichero[i] = args[i];
+		    callJflex(fichero);
+		}
+		
 	    }
 	    
 	}
