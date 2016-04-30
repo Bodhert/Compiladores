@@ -42,7 +42,7 @@ LiteralToken = "_"
 
 <YYINITIAL> {
  {SpecialSymbol} =  {return new COSpecialSymbolToken(yycolumn,yyline,yytext());}
- {SeparatorWord} =  {return new COSeparatorWord(yycolumn,yyline,yytext()); }
+ {SeparatorWord} =  {return new COSeparatorToken(yycolumn,yyline,yytext()); }
  {ReservedWord}  =  {return new COReservedWordToken(yycolumn,yyline,yytext());}
  {Operator} 	 =  {return new COOperatorToken(yycolumn,yyline,yytext());}
  {WhiteSpace}	    {/*ignore*/}

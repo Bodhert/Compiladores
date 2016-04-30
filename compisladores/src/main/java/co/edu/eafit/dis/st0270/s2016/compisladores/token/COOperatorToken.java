@@ -24,16 +24,20 @@ public  class COOperatorToken
 	CDIVI,
 	CMULTI,
 	AT,
-	ASSING,
+	ASSIGN,
 	TWOP
     };
 
     private String operator;
+    private int column;
+    private int line;
     private EnumOperator eOp;
 
     public COOperatorToken(int column, int line, String operator) {
-	super(column, line, text);
+	super(column, line, operator);
 	this.operator = new String(operator);
+	this.column = column;
+	this.line = line;
 	this.eOp = getEOP();
     }
 
@@ -83,11 +87,10 @@ public  class COOperatorToken
     }
 
     public String toString() {
-	String id = super.getText();
-	String line = super.getLine();
-	String column = super.getColumn();
+	String id = "" + super.getText();
+	String line = "" + super.getLine();
+	String column = "" + super.getColumn();
 	
 	return "Operator: " + id + " Linea: " + line +  "Columna: " + column;
     }
 }
-	
