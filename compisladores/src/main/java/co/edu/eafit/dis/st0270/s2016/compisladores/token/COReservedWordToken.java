@@ -1,10 +1,10 @@
 
 package co.edu.eafit.dis.st0270.s2016.compisladores.token;
 
-import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
+//import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
 
 public class COReservedWordToken
-    extends ReservedWordToken {
+    extends co.edu.eafit.dis.st0270.s2016.sisctr.token.ReservedWordToken {
     
     public COReservedWordToken(int column, int line, String text) {
         super(column, line, text);
@@ -30,9 +30,9 @@ public class COReservedWordToken
     }
     
     public String toString(){
-	string column = "" + super.getColumn();
-	string line = "" + super.getLine();
-	string id = super.getText();    
+	String column = "" + super.getColumn();
+	String line = "" + super.getLine();
+	String id = super.getText();    
 	return "Reserved: " + id + "linea: " + line + " columna: " + column;
     }
 }

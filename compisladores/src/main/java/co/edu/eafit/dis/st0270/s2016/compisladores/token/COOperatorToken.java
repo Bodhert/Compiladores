@@ -1,10 +1,10 @@
 
 package co.edu.eafit.dis.st0270.s2016.compisladores.token;
 
-import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
+//import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
 
 public  class COOperatorToken
-    extends OperatorToken {
+    extends co.edu.eafit.dis.st0270.s2016.sisctr.token.OperatorToken {
     
     public enum EnumOperator {
 	
@@ -27,11 +27,13 @@ public  class COOperatorToken
 	ASSING,
 	TWOP
     };
-    
+
+    private String operator;
     private EnumOperator eOp;
 
-    public OperatorToken(int column, int line, String text) {
+    public COOperatorToken(int column, int line, String operator) {
 	super(column, line, text);
+	this.operator = new String(operator);
 	this.eOp = getEOP();
     }
 
@@ -81,9 +83,9 @@ public  class COOperatorToken
     }
 
     public String toString() {
-	string id = super.getText();
-	string line = super.getLine();
-	string column = super.getColumn();
+	String id = super.getText();
+	String line = super.getLine();
+	String column = super.getColumn();
 	
 	return "Operator: " + id + " Linea: " + line +  "Columna: " + column;
     }
