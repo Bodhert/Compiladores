@@ -1,4 +1,4 @@
-package co.edu.eafit.dis.st0270.s2016.compisladores;
+package co.edu.eafit.dis.st0270.s2016.compisladores.lexer;
 
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COReservedWordToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COIDToken;
@@ -27,16 +27,18 @@ EndOfLineComment     = "//" {InputCharacter}* {LineTerminator}
 DocumentationComment = "/**" {CommentContent} "*"+ "/"
 CommentContent       = ( [^*] | \*+ [^/*] )*
 
-Operator = "[" | "]" | "{" | "}" |"("| ")" | "<" | ">" | "+" | "-"
-	       | "*" | "/" | ">>=" | ">>" | "|" | "@" | "=" | ":"
+Operator = ("[" | "]" | "{" | "}" |"("| ")" | "<" | ">" | "+" | "-"
+	       | "*" | "/" | ">>=" | ">>" | "|" | "@" | "=" | ":")*
 
-ReservedWord = "disp" | "input" | "let" | "Int"
+ReservedWord = ("disp" | "input" | "let" | "Int")*
 
-SeparatorWord = ","
+SeparatorWord = (",")*
 
-SpecialSymbol = "()"
+SpecialSymbol = ("()")*
 
-LiteralToken = "_"
+LiteralToken = 0 | ( "_" | [1-9][0-9][0-9][0-9] | "-"[1-9][0-9][0-9][0-9])*
+
+IDToken = ([a-z]|[A-Z])*
 
 %%
 
@@ -45,7 +47,9 @@ LiteralToken = "_"
  {SeparatorWord} =  {return new COSeparatorToken(yycolumn,yyline,yytext()); }
  {ReservedWord}  =  {return new COReservedWordToken(yycolumn,yyline,yytext());}
  {Operator} 	 =  {return new COOperatorToken(yycolumn,yyline,yytext());}
+ {LiteralToken}	 =  {return new COLiteralToken(yycolumn,yyline,yytext());}
+ {IDToken} 	 =  {}
  {WhiteSpace}	    {/*ignore*/}
  {Comment}	    {/*ignore*/}
 }
-.|\n		 { throw new Error("Illegal character <" + yytext() + "> at line: " + (yyline + 1) + " column: " + yycolumn); }
+[^]		 { throw new Error("Illegal character <" + yytext() + "> at line: " + (yyline + 1) + " column: " + yycolumn); }
