@@ -6,7 +6,7 @@ import co.edu.eafit.dis.st0270.s2016.compisladores.token.COLiteralToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COOperatorToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSeparatorToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSpecialSymbolToken;
-
+import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
 
 %%
 %class SCcompisladoresLexer
@@ -14,7 +14,7 @@ import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSpecialSymbolToken;
 %line
 %column
 %function getNextToken
-%type Token
+%type SCToken
 %public
 
 LineTerminator = \r|\n|\r\n
