@@ -45,7 +45,7 @@ public class MaincompisladoresLexer
 	    try {
 		SCcompisladoresLexer lexer = new SCcompisladoresLexer(lector);
 		SCToken t = lexer.getNextToken(); 
-		System.out.println("fichero" + fichero[i] + " analizador: Jflex");
+		System.out.println("fichero " + fichero[i] + " analizador: Jflex");
 		while(t != null){
 		    System.out.println(t);
 		    t = lexer.getNextToken();
