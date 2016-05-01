@@ -59,8 +59,9 @@ public class SCcompisladoresLexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\2\2\4\3\5\4\1\5\1\6\1\1"+
-    "\2\0\1\7\1\3\10\0\1\10\1\6\1\0\1\2";
+    "\1\1\1\2\2\3\4\4\5\1\1\5\1\6\1\2"+
+    "\2\0\1\7\1\4\3\1\3\0\2\1\1\10\1\6"+
+    "\1\0\1\3";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[32];
@@ -89,9 +90,9 @@ public class SCcompisladoresLexer {
 
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\31\0\62\0\31\0\113\0\31\0\144\0\175"+
-    "\0\226\0\257\0\31\0\310\0\341\0\31\0\31\0\372"+
-    "\0\u0113\0\u012c\0\31\0\u0145\0\u015e\0\u0177\0\u0190\0\u01a9"+
-    "\0\u01c2\0\u01db\0\u01f4\0\u020d\0\31\0\u01a9\0\u0226\0\u01c2";
+    "\0\226\0\257\0\310\0\341\0\372\0\31\0\31\0\u0113"+
+    "\0\u012c\0\u0145\0\31\0\u015e\0\u0177\0\u0190\0\u01a9\0\u01c2"+
+    "\0\u01db\0\u01f4\0\u020d\0\u0226\0\310\0\u01c2\0\u023f\0\u01db";
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[32];
@@ -120,15 +121,20 @@ public class SCcompisladoresLexer {
     "\1\2\1\3\2\4\1\5\2\6\1\7\1\6\1\10"+
     "\1\6\1\11\1\12\5\13\1\14\1\13\1\15\1\16"+
     "\1\17\1\20\1\13\33\0\1\4\32\0\1\21\1\22"+
-    "\33\0\1\23\31\0\1\24\33\0\1\25\33\0\1\26"+
-    "\34\0\1\27\24\0\1\27\37\0\2\30\1\0\1\21"+
-    "\1\3\1\4\26\21\5\31\1\32\23\31\12\0\1\6"+
-    "\33\0\1\33\31\0\1\34\33\0\1\35\35\0\2\36"+
-    "\1\0\5\31\1\37\27\31\1\40\1\37\23\31\16\0"+
-    "\1\35\32\0\1\27\10\0\4\31\1\4\1\37\23\31";
+    "\33\0\1\23\31\0\1\24\32\0\1\13\1\25\10\13"+
+    "\3\0\1\13\13\0\4\13\1\26\5\13\3\0\1\13"+
+    "\13\0\12\13\3\0\1\13\13\0\10\13\1\27\1\13"+
+    "\3\0\1\13\13\0\4\13\1\27\5\13\3\0\1\13"+
+    "\26\0\2\30\1\0\1\21\1\3\1\4\26\21\5\31"+
+    "\1\32\23\31\12\0\1\6\31\0\2\13\1\33\7\13"+
+    "\3\0\1\13\13\0\3\13\1\34\6\13\3\0\1\13"+
+    "\13\0\6\13\1\35\3\13\3\0\1\13\26\0\2\36"+
+    "\1\0\5\31\1\37\27\31\1\40\1\37\23\31\13\0"+
+    "\3\13\1\35\6\13\3\0\1\13\13\0\5\13\1\27"+
+    "\4\13\3\0\1\13\4\31\1\4\1\37\23\31";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[575];
+    int [] result = new int[600];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -166,9 +172,8 @@ public class SCcompisladoresLexer {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\1\11\1\1\1\11\1\1\1\11\4\1\1\11"+
-    "\2\1\2\11\1\1\2\0\1\11\1\1\10\0\1\11"+
-    "\1\1\1\0\1\1";
+    "\1\1\1\11\1\1\1\11\1\1\1\11\7\1\2\11"+
+    "\1\1\2\0\1\11\4\1\3\0\4\1\1\0\1\1";
 
   private static int [] zzUnpackAttribute() {
     int [] result = new int[32];
@@ -618,19 +623,19 @@ public class SCcompisladoresLexer {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1: 
-            { throw new Error("Illegal character <" + yytext() + "> at line: " + (yyline + 1) + " column: " + yycolumn);
+            { return new COIDToken (yycolumn,yyline,yytext());
             }
           case 9: break;
           case 2: 
-            { /*ignore*/
+            { throw new Error("Illegal character <" + yytext() + "> at line: " + (yyline + 1) + " column: " + yycolumn);
             }
           case 10: break;
           case 3: 
-            { return new COOperatorToken(yycolumn,yyline,yytext());
+            { /*ignore*/
             }
           case 11: break;
           case 4: 
-            { return new COIDToken (yycolumn,yyline,yytext());
+            { return new COOperatorToken(yycolumn,yyline,yytext());
             }
           case 12: break;
           case 5: 
