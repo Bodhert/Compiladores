@@ -53,4 +53,4 @@ IDToken = ([a-z]|[A-Z])*
  {Comment}	   { /*ignore*/ }
 }
 
-[^]		 { throw new Error("Execpcion: Token no reconocido: " + yytext() + " linea:  " + (yyline + 1) + " columna: " + yycolumn); }
+[^]		 { throw new Error("Excepcion: Token no reconocido: " + yytext() + " linea:  " + (yyline + 1) + " columna: " + yycolumn); }
