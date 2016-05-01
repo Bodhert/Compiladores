@@ -9,24 +9,12 @@ public class COSeparatorToken
     public COSeparatorToken(int column, int line, String text) {
         super(column, line, text);
     }
-    
-    public enum EnumSeparator  {
-	COMMA;
-	
-	static public EnumSeparator getSeparatorOrdinal(String name) throws Error
-	{
-	    switch(name.charAt(0)) {
-	    case ',' : return COMMA;
-	    }	    
-	    throw new Error("Unknown separator ordinal");
-	}	
-    }
-    
+     
     public String toString() {
 	String column = "" + super.getColumn();
 	String line = "" + super.getLine();
 	String id = super.getText();
-	return "Separator:" + id + "linea: " + line + " columna: " + column;
+	return "Separador: " + id + " linea: " + line + " columna: " + column;
     }
     
     

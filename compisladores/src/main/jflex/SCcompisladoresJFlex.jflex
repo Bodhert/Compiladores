@@ -27,29 +27,30 @@ EndOfLineComment     = "//" {InputCharacter}* {LineTerminator}
 DocumentationComment = "/**" {CommentContent} "*"+ "/"
 CommentContent       = ( [^*] | \*+ [^/*] )*
 
-Operator = ("[" | "]" | "{" | "}" |"("| ")" | "<" | ">" | "+" | "-"
-	       | "*" | "/" | ">>=" | ">>" | "|" | "@" | "=" | ":")*
+Operator = "[" | "]" | "{" | "}" |"("| ")" | "<" | ">" | "+" | "-"
+	       | "*" | "/" | ">>=" | ">>" | "|" | "@" | "=" | ":"
 
-ReservedWord = ("disp" | "input" | "let" | "Int")*
+ReservedWord = "disp" | "input" | "let" | "Int"
 
-SeparatorWord = (",")*
+SeparatorWord = ","
 
-SpecialSymbol = ("()")*
+SpecialSymbol = "()"
 
-LiteralToken = 0 | ( "_" | [1-9][0-9][0-9][0-9] | "-"[1-9][0-9][0-9][0-9])*
+LiteralToken = 0 | [1-9][0-9][0-9][0-9]*
 
-IDToken = ([a-z]|[A-Z])*
+IDToken = [a-z]|[A-Z]
 
 %%
 
 <YYINITIAL> {
- {SpecialSymbol} =  {return new COSpecialSymbolToken(yycolumn,yyline,yytext());}
- {SeparatorWord} =  {return new COSeparatorToken(yycolumn,yyline,yytext()); }
- {ReservedWord}  =  {return new COReservedWordToken(yycolumn,yyline,yytext());}
- {Operator} 	 =  {return new COOperatorToken(yycolumn,yyline,yytext());}
- {LiteralToken}	 =  {return new COLiteralToken(yycolumn,yyline,yytext());}
- {IDToken} 	 =  {}
- {WhiteSpace}	    {/*ignore*/}
- {Comment}	    {/*ignore*/}
+ {SpecialSymbol}   { return new COSpecialSymbolToken(yycolumn,yyline,yytext()); }
+ {SeparatorWord}   { return new COSeparatorToken(yycolumn,yyline,yytext()); }
+ {ReservedWord}    { return new COReservedWordToken(yycolumn,yyline,yytext()); }
+ {Operator} 	   { return new COOperatorToken(yycolumn,yyline,yytext()); }
+ {LiteralToken}	   { return new COLiteralToken(yycolumn,yyline,yytext()); }
+ {IDToken} 	   { return new COIDToken (yycolumn,yyline,yytext()); }
+ {WhiteSpace}	   { /*ignore*/ }
+ {Comment}	   { /*ignore*/ }
 }
+
 [^]		 { throw new Error("Illegal character <" + yytext() + "> at line: " + (yyline + 1) + " column: " + yycolumn); }

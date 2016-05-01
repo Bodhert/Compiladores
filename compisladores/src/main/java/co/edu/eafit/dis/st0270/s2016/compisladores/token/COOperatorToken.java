@@ -29,15 +29,11 @@ public  class COOperatorToken
     };
 
     private String operator;
-    private int column;
-    private int line;
     private EnumOperator eOp;
 
     public COOperatorToken(int column, int line, String operator) {
 	super(column, line, operator);
 	this.operator = new String(operator);
-	this.column = column;
-	this.line = line;
 	this.eOp = getEOP();
     }
 
@@ -91,6 +87,6 @@ public  class COOperatorToken
 	String line = "" + super.getLine();
 	String column = "" + super.getColumn();
 	
-	return "Operator: " + id + " Linea: " + line +  "Columna: " + column;
+	return "Operador: " + id + " linea: " + line +  " columna: " + column;
     }
 }

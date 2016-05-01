@@ -9,6 +9,10 @@
   <version>1.0-SNAPSHOT</version>
   <name>compisladores</name>
   <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
   
   <dependencies>
     <dependency>
@@ -103,23 +107,7 @@
 	      </excludes>
 	      <followSymlinks>false</followSymlinks>
 	    </fileset>
-	    <fileset>
-	      
-	      <directory>src/main/java/co/edu/eafit/dis/st0270/jaycompiler/lexer/</directory>
-	      <includes>
-		<include>**/*.java</include>
-		<include>**/*.tokens</include>
-	      </includes>
-	      <followSymlinks>false</followSymlinks>
-	    </fileset>
-	    <fileset>
-	      
-	      <directory>src/main/java/co/edu/eafit/dis/st0270/jaycompiler/jflex/</directory>
-	      <includes>
-		<include>**/*.java</include>
-	      </includes>
-	      <followSymlinks>false</followSymlinks>
-	    </fileset>
+	    
 	  </filesets>  
 	</configuration>
       </plugin>

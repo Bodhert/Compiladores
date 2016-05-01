@@ -15,7 +15,7 @@ extends co.edu.eafit.dis.st0270.s2016.sisctr.token.IDToken{
 	String column = "" + super.getColumn();
 	String line = "" + super.getLine();
 	String id = super.getText();    
-	return "Identifier: " + id + "linea: " + line + " columna: " + column;
+	return "Identificador: " + id + " linea: " + line + " columna: " + column;
     }
 }
 

@@ -6,14 +6,10 @@ package co.edu.eafit.dis.st0270.s2016.compisladores.token;
 public class COReservedWordToken
     extends co.edu.eafit.dis.st0270.s2016.sisctr.token.ReservedWordToken {
 
-    private int column;
-    private int  line;
     private String text;
     
     public COReservedWordToken(int column, int line, String text) {
         super(column, line, text);
-	this.column = column;
-	this.line = line;
 	this.text = text;
     }
 
@@ -40,7 +36,7 @@ public class COReservedWordToken
 	String column = "" + super.getColumn();
 	String line = "" + super.getLine();
 	String id = super.getText();    
-	return "Reserved: " + id + "linea: " + line + " columna: " + column;
+	return "Reserved: " + id + " linea: " + line + " columna: " + column;
     }
 }
 

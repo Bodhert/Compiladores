@@ -25,37 +25,38 @@ public class MaincompisladoresLexer
 	    }else if(args[0] == "both"){
 		//llamo a ambos
 	    }else{
-		String fichero [] = new String[args.length];
-		for(int i = 0; i < args.length; i++){
-		    fichero[i] = args[i];
-		    callJflex(fichero);
-		}
-		
+		callJflex(args);
 	    }
 	    
 	}
     }
     
     public static void callJflex(String fichero[]){
-	InputStreamReader lector;
 	
-	for(int i = 0; i < fichero.length; ++i){
+	for(int i = 0; i < fichero.length; i++){
+	    InputStreamReader lector = null;
 	    try{
-		lector = new InputStreamReader(new FileInputStream(fichero[i]));
-		SCcompisladoresLexer lexer = new SCcompisladoresLexer(lector);
-		SCToken token = lexer.getNextToken();
-		System.out.println("fichero: " + fichero[i] + "analizador : JFlex" );
-		while(token != null){
-		    System.out.println(token);
-		    token = lexer.getNextToken();
-		}
-		
-	    }catch(FileNotFoundException e){
-		System.out.println("No pudo abrir el archivo: " + fichero[i]);
-	    }catch(Exception e){
-		System.out.println("excepcion: " + e);
+		lector =  new InputStreamReader( new FileInputStream(fichero[i]));
 	    }
-		
+	    catch(FileNotFoundException e){
+		System.err.println(e);
+	    }
+
+	    try {
+		SCcompisladoresLexer lexer = new SCcompisladoresLexer(lector);
+		SCToken t = lexer.getNextToken(); 
+		System.out.println("fichero" + fichero[i] + "analizador: Jflex");
+		while(t != null){
+		    System.out.println(t);
+		    t = lexer.getNextToken();
+		}
+	    }
+	    catch(Exception e){
+		System.err.println(e);
+       
+	    }
+	    
 	}
+	
     }
 }

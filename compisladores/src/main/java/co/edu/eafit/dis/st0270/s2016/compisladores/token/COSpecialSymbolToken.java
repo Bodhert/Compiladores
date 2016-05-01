@@ -16,6 +16,7 @@ extends co.edu.eafit.dis.st0270.s2016.sisctr.token.SpecialSymbolToken {
 
     public enum EnumSymbol{
 	Void,Void_;
+	
 	static public EnumSymbol getSymbolOrdinal(String name) throws Error
 	{
 	    if(name.compareTo("()") == 0) return Void;
@@ -28,7 +29,7 @@ extends co.edu.eafit.dis.st0270.s2016.sisctr.token.SpecialSymbolToken {
 	String column = "" + super.getColumn();
 	String line = "" + super.getLine();
 	String id = super.getText();
-	return "SpecialSymbol: " + id + "linea: " + line + " columna" + column;
+	return "Simbolo Especial: " + id + " linea: " + line + " columna: " + column;
     }
 
     public EnumSymbol getEnumSymbol() throws Error{
