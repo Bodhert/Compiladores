@@ -36,7 +36,7 @@ SeparatorWord = ","
 
 SpecialSymbol = "()"
 
-LiteralToken = [1-9][0-9]*| (-[1-9])[0-9]* | "0"
+LiteralToken = [1-9][0-9]*| -[1-9][0-9]* | "0"
 
 IDToken = ([a-z]|[A-Z])*
 
@@ -53,4 +53,4 @@ IDToken = ([a-z]|[A-Z])*
  {Comment}	   { /*ignore*/ }
 }
 
-[^]		 { throw new Error("Illegal character <" + yytext() + "> at line: " + (yyline + 1) + " column: " + yycolumn); }
+[^]		 { throw new Error("Execpcion: Token no reconocido: " + yytext() + " linea:  " + (yyline + 1) + " columna: " + yycolumn); }

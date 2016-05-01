@@ -36,7 +36,7 @@ public class COReservedWordToken
 	String column = "" + super.getColumn();
 	String line = "" + super.getLine();
 	String id = super.getText();    
-	return "Reserved: " + id + " linea: " + line + " columna: " + column;
+	return "Palabra reservada: " + id + " linea: " + line + " columna: " + column;
     }
 }
 
