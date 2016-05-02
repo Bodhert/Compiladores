@@ -55,7 +55,7 @@ public class MaincompisladoresLexer
 	    }
 	    
 	    catch(SCLexerException e){
-		System.out.println("jiji");
+		System.out.println(e.getMessage());
 	    }
 	    
 	}
