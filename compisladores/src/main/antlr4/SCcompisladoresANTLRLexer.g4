@@ -1,0 +1,68 @@
+lexer grammar SCcompisladoresANTLRLexer;
+
+@lexer::header{
+package co.edu.eafit.dis.st0270.s2016.compisladores.lexer;
+}
+
+@lexer::rulecatch {
+   catch (RecognitionException e) {
+      throw e;
+   }
+}
+
+Operators
+		: '[' 
+		| ']' 
+		| '{'
+		| '}'
+		| '(' 
+		| ')' 
+		| '<' 
+		| '>' 
+		| '+' 
+		| '-' 
+		| '*' 
+		| '/' 
+		| '>>=' 
+		| '>>' 
+		| '|' 
+		| '@' 
+		| '=' 
+		| ':' 
+		;
+
+		
+ReservedWord
+			: 'disp'
+			| 'input'
+			| 'let'
+			| 'Int'
+			;
+
+SeparatorWord
+			: ','
+			;
+
+SpecialSymbol
+			: '()'
+			; 
+
+LiteralToken : '0' | ['1'..'9']['0'..'9']*
+			 ;
+
+IDToken : (['a'-'z']|['A'-'Z'])*
+		;
+
+Comment
+      :  ( '//' ~[\r\n]* '\r'? '\n'
+         | '/*' .*? '*/'
+         ) -> skip
+      ;
+
+WhiteSpace  :   ( ' '
+		        | '\t'
+        		| '\r'
+        		| '\n'
+        		| '\f'
+        		) -> skip
+    		;

@@ -26,13 +26,14 @@
       <artifactId>sisctr</artifactId>
       <version>1.0.4</version> 
     </dependency>
-    <!--<dependency>
+    
+    <dependency>
 	<groupId>org.antlr</groupId>
       <artifactId>antlr4-maven-plugin</artifactId>
       <version>4.5.3</version>
       <type>maven-plugin</type>
       </dependency>
-    -->
+    
   </dependencies>
   
   <build>
@@ -41,7 +42,7 @@
       <plugin>
 	<groupId>de.jflex</groupId>
 	<artifactId>jflex-maven-plugin</artifactId>
-	<version>1.6.1</version> <!--como hago para pasarme ha la 1.6.1 si no me genera el goal -->
+	<version>1.6.1</version> 
 	<executions>
 	  <execution>
 	    <goals>
@@ -53,7 +54,7 @@
 	  </execution>
 	</executions>
       </plugin>
-      <!--
+      
       <plugin>
 	<groupId>org.antlr</groupId>
 	<artifactId>antlr4-maven-plugin</artifactId>
@@ -71,7 +72,7 @@
 	      <nfa>false</nfa>
 	      <libDirectory>src/main/antlr4/imports</libDirectory>
 	      <messageFormat>antlr</messageFormat>
-	      <outputDirectory>src/main/java/co/edu/eafit/dis/st0270/jaycompiler/lexer</outputDirectory>
+	      <outputDirectory>src/main/java/co/edu/eafit/dis/st0270/s2016/compisladores/lexer</outputDirectory>
 	      <printGrammar>false</printGrammar>
 	      <profile>false</profile>
 	      <report>false</report>
@@ -89,7 +90,7 @@
 	  </execution>
 	</executions>
       </plugin>
-      -->
+      
       <plugin>
 	<artifactId>maven-clean-plugin</artifactId>
 	<version>2.6.1</version>
