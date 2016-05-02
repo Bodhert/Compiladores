@@ -51,7 +51,7 @@ SeparatorWord = ","
 
 SpecialSymbol = "()"
 
-LiteralToken = 0 | ([1-9][0-9][0-9][0-9])*
+LiteralToken = 0 | [1-9][0-9]*
 
 IDToken = ([a-z]|[A-Z])*
 
