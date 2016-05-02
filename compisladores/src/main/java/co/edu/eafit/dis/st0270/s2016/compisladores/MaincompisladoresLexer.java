@@ -2,9 +2,11 @@ package co.edu.eafit.dis.st0270.s2016.compisladores;
 
 import co.edu.eafit.dis.st0270.s2016.compisladores.lexer.SCcompisladoresLexer;
 import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
+import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexerException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class MaincompisladoresLexer 
 {
@@ -51,9 +53,9 @@ public class MaincompisladoresLexer
 		    t = lexer.getNextToken();
 		}
 	    }
-	    catch(Exception e){
-		System.err.println(e);
-       
+	    
+	    catch(SCLexerException e){
+		System.out.println("jiji");
 	    }
 	    
 	}

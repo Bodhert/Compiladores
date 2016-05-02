@@ -7,15 +7,30 @@ import co.edu.eafit.dis.st0270.s2016.compisladores.token.COOperatorToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSeparatorToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSpecialSymbolToken;
 import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
+import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexer;
+import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexerException;
 
 %%
+%implements SCLexer
 %class SCcompisladoresLexer
 %unicode
 %line
 %column
-%function getNextToken
 %type SCToken
 %public
+
+
+%{
+public SCToken getNextToken() throws SCLexerException{
+       SCToken t = null;
+       try{
+	t =  yylex();
+       }catch(Exception e){
+       	throw new SCLexerException("error");		    
+       }
+       return t; 
+}
+%}
 
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
@@ -36,7 +51,7 @@ SeparatorWord = ","
 
 SpecialSymbol = "()"
 
-LiteralToken = [1-9][0-9]*| -[1-9][0-9]* | "0"
+LiteralToken = 0 | ([1-9][0-9][0-9][0-9])*
 
 IDToken = ([a-z]|[A-Z])*
 
@@ -53,4 +68,4 @@ IDToken = ([a-z]|[A-Z])*
  {Comment}	   { /*ignore*/ }
 }
 
-[^]		 { throw new Error("Excepcion: Token no reconocido: " + yytext() + " linea:  " + (yyline + 1) + " columna: " + yycolumn); }
+[^]		 {throw new Error ("Excepcion: Token no reconocido: " + yytext() + " linea:  " + (yyline + 1) + " columna: " + yycolumn);}
