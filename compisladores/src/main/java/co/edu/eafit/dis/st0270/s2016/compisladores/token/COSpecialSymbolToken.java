@@ -33,7 +33,7 @@ extends co.edu.eafit.dis.st0270.s2016.sisctr.token.SpecialSymbolToken {
     }
 
     public EnumSymbol getEnumSymbol() throws Error{
-	return EnumSymbol.getSymbolOrdinal(text); // no se si esta del todo bien implementada
+	return EnumSymbol.getSymbolOrdinal(text); 
     }
     
 }

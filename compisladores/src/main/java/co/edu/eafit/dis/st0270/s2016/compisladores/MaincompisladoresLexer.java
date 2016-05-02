@@ -57,6 +57,10 @@ public class MaincompisladoresLexer
 	    catch(SCLexerException e){
 		System.out.println(e.getMessage());
 	    }
+
+	    catch(Exception e){
+		System.out.println(e.getMessage());
+	    }
 	    
 	}
 	

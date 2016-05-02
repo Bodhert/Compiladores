@@ -1,28 +1,38 @@
 
 package co.edu.eafit.dis.st0270.s2016.compisladores.token;
+import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexer;
+import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexerException;
+import java.io.IOException;
 
 //import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
 
 public class COLiteralToken
     extends co.edu.eafit.dis.st0270.s2016.sisctr.token.LiteralToken {
+    
     private int valor;
-
     public COLiteralToken(int column, int line, String text) {
         super(column, line, text);
 	this.valor = valor;
     }
+
+
+    public boolean check(){
+	String check = super.getText();
+	int valor = Integer.parseInt(check);
+	if(valor <= 32767 || valor >= -32768) return true;
+	return false;
+    }
     
-    public String toString(){
+    public String toString() throws IllegalMonitorStateException{
 	String column = "" + super.getColumn();
 	String line = "" + super.getLine();
-	String id = super.getText(); 
-	int valor = Integer.parseInt(id);
-	if(valor <= 32767 && valor >= -32768){   
-	    return "Literal: " + id + " linea: " + line + " columna: " + column;
-	} 
-	else {
-	    return "Exception: Literal no reconocido: " + id + " linea: " + line + " columna: " + column ;
-	}
+	String id = super.getText();
+	
+	if(check())
+	return "Literal: " + id + " linea: " + line + " columna: " + column;
+
+	throw  new  IllegalMonitorStateException  ("Literal: " + id + " linea: " + line + " columna: " + column);
     }
+
 }
 

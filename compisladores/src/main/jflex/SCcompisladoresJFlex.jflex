@@ -69,5 +69,5 @@ IDToken = ([a-z]|[A-Z])*
  {Comment}	   { /*ignore*/ }
 }
 
-[^]		 {throw new java.io.IOException ("Excepcion: Token no reconocido: " + yytext() + " linea:  " + (yyline + 1) + " columna: " + yycolumn);}
+[^]		 {throw new java.io.IOException ("Excepcion: Token no reconocido: " + yytext() + " linea: " + (yyline + 1) + " columna: " + yycolumn);}
 
