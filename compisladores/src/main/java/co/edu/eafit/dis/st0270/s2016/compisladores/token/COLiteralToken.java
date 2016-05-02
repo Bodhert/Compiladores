@@ -18,8 +18,9 @@ public class COLiteralToken
 
     public boolean check(){
 	String check = super.getText();
-	int valor = Integer.parseInt(check);
-	if(valor <= 32767 && valor >= -32768) return true;
+	String first = check.substring(0,1);
+	int valor = Integer.parseInt(check,20);
+	if(valor <= 32767 && valor >= -32768 && first != "0") return true;
 	return false;
     }
     
@@ -31,7 +32,7 @@ public class COLiteralToken
 	if(check())
 	return "Literal: " + id + " linea: " + line + " columna: " + column;
 
-	throw new IllegalMonitorStateException  ("Error Literal Invalido: " + id + " linea: " + line + " columna: " + column);
+	throw new IllegalMonitorStateException  ("Exception: NumberValueInvalid: Token: " + id + " linea: " + line + " columna: " + column);
     }
 
 }
