@@ -17,7 +17,7 @@ public class COLiteralToken
 	String line = "" + super.getLine();
 	String id = super.getText(); 
 	int valor = Integer.parseInt(id);
-	if(valor <= 32767 && valor >= -32767){   
+	if(valor <= 32767 && valor >= -32768){   
 	    return "Literal: " + id + " linea: " + line + " columna: " + column;
 	} 
 	else {

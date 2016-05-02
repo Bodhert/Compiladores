@@ -51,7 +51,7 @@ SeparatorWord = ","
 
 SpecialSymbol = "()"
 
-LiteralToken = 0 | [1-9][0-9]*
+LiteralToken = [1-9][0-9]* | 0
 
 IDToken = ([a-z]|[A-Z])*
 
@@ -69,3 +69,4 @@ IDToken = ([a-z]|[A-Z])*
 }
 
 [^]		 {throw new Error ("Excepcion: Token no reconocido: " + yytext() + " linea:  " + (yyline + 1) + " columna: " + yycolumn);}
+
