@@ -14,33 +14,37 @@ public class MaincompisladoresLexer
     public static void main( String[] args )
     {
 	if(args.length > 0){
-	    
-	    if(args[0] == "jflex"){
+	    if(args[0].equals("jflex")){
 		String fichero [] = new String[args.length-1];
-		for(int i = 1; i <= args.length; ++i){
+		System.out.println(args.length);
+		System.out.println(fichero.length);
+		for(int i = 1; i < args.length;i++){
 		    fichero[i-1] = args[i];
-		    callJflex(fichero);
 		}
-		
-		//llamo jflex
-	    }else if(args[0] == "antlr"){
+		callJflex(fichero);
+	    }else if(args[0].equals("antlr")){
 		String fichero [] = new String[args.length-1];
-		for(int i = 1; i <= args.length; ++i){
+		System.out.println(args.length);
+		System.out.println(fichero.length);
+		for(int i = 1; i < args.length;i++){
 		    fichero[i-1] = args[i];
-		    callAntlr(fichero);
 		}
-		
-
-		//
-	    }else if(args[0] == "both"){
-		callJflex(args);
-		callAntlr(args);
+		callAntlr(fichero);
+	    }else if(args[0].equals("both")){
+		String fichero [] = new String[args.length-1];
+		System.out.println(args.length);
+		System.out.println(fichero.length);
+		for(int i = 1; i < args.length;i++){
+		    fichero[i-1] = args[i];
+		}
+		callJflex(fichero);
+		callAntlr(fichero);
 	    }else{
 		callJflex(args);
 		callAntlr(args);
 	    }
-	    
 	}
+      
     }
     
     public static void callJflex(String fichero[]){
