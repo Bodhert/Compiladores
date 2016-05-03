@@ -31,11 +31,20 @@ public abstract class NLexer extends Lexer implements SCLexer {
 	Vocabulary voc = this.getVocabulary();
 	String tipo = voc.getSymbolicName(t.getType());
 	SCToken sctoken = null;
-	if(tipo.compareTo("OPERATORS") == 0) sctoken = new COOperatorToken(t.getCharPositionInLine(),t.getLine(),t.getText());
-	else
-	    throw new SCLexerException ("holi");
-	
+	if(tipo.compareTo("Operators") == 0) sctoken = new COOperatorToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+	else 
+	    if (tipo.compareTo("ReservedWord") == 0) sctoken = new COReservedWordToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+	    else
+		if(tipo.compareTo("SeparatorWord") == 0) sctoken = new COSeparatorToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+		else
+		    if(tipo.compareTo("SpecialSymbol") == 0) sctoken = new COSpecialSymbolToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+		    else
+			if(tipo.compareTo("LiteralToken") == 0) sctoken = new COLiteralToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+			else
+			    if(tipo.compareTo("IDToken") == 0) sctoken = new COIDToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+			    else
+				throw new SCLexerException ("Excepcion: Token no reconocido: " + getText() + " linea: " + (getLine() + 1) + " columna: " + getCharPositionInLine());
 	return sctoken;
     }
-    
+
 }

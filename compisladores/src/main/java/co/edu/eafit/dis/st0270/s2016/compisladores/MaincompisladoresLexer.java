@@ -21,15 +21,23 @@ public class MaincompisladoresLexer
 		    fichero[i-1] = args[i];
 		    callJflex(fichero);
 		}
+		
 		//llamo jflex
 	    }else if(args[0] == "antlr"){
+		String fichero [] = new String[args.length-1];
+		for(int i = 1; i <= args.length; ++i){
+		    fichero[i-1] = args[i];
+		    callAntlr(fichero);
+		}
+		
+
 		//
 	    }else if(args[0] == "both"){
 		callJflex(args);
-		//callAntlr(args);
+		callAntlr(args);
 	    }else{
 		callJflex(args);
-		//callAntlr(args);
+		callAntlr(args);
 	    }
 	    
 	}
@@ -68,6 +76,36 @@ public class MaincompisladoresLexer
     }
 
     public static void callAntlr(String fichero[]){
+
+	
+	for(int i = 0; i < fichero.length; i++){
+	    InputStreamReader lector = null;
+	    try{
+		lector =  new InputStreamReader( new FileInputStream(fichero[i]));
+	    }
+	    catch(FileNotFoundException e){
+		System.err.println(e);
+	    }
+
+	    try {
+		SCcompisladoresLexer lexer = new SCcompisladoresLexer(lector);
+		SCToken t = lexer.getNextToken(); 
+		System.out.println("fichero: " + fichero[i] + " analizador: ANTLR");
+		while(t != null){
+		    System.out.println(t);
+		    t = lexer.getNextToken();
+		}
+	    }
+	    
+	    catch(SCLexerException e){
+		System.out.println(e.getMessage());
+	    }
+
+	    catch(Exception e){
+		System.out.println(e.getMessage());
+	    }
+	    
+	}
 	
     }
     

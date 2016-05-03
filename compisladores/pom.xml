@@ -132,7 +132,7 @@
 	    <configuration>
 	      <mainClass>co.edu.eafit.dis.st0270.s2016.compisladores.MaincompisladoresLexer</mainClass>
               <arguments>
-		<argument>src/examples/prueba1</argument>
+		<argument>src/examples/prueba1.sc</argument>
               </arguments>
             </configuration>
           </execution>
@@ -156,7 +156,7 @@
             <configuration>
               <mainClass>co.edu.eafit.dis.st0270.s2016.compisladores.MaincompisladoresLexer</mainClass>
               <arguments>
-		<argument>src/examples/prueba1.txt</argument>
+		<argument>src/examples/prueba1.sc</argument>
               </arguments>
             </configuration>
           </execution>
