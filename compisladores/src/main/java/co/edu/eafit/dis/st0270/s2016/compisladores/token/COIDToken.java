@@ -1,4 +1,3 @@
-
 package co.edu.eafit.dis.st0270.s2016.compisladores.token;
 
 //import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken; //por que al extender debe ser toda esa ruta
@@ -15,11 +14,11 @@ extends co.edu.eafit.dis.st0270.s2016.sisctr.token.IDToken{
       	String check = super.getText();
 	char first = check.charAt(0);
 	int cf =  check.indexOf("0");
-	//	System.out.println(cf);
+	
 	if (check()){
 	    if(cf == check.length()-1 || cf == -1){
-		//	System.out.println(cf);
 		if(first >= '0' && first >= '9' ){ 
+		    if(check.substring(0,1).equals("_"))return false;
 		    return true;
 		}
 		else {
@@ -32,6 +31,8 @@ extends co.edu.eafit.dis.st0270.s2016.sisctr.token.IDToken{
 	}
 	return false;
     }
+  
+    
 
 
 
@@ -68,7 +69,7 @@ extends co.edu.eafit.dis.st0270.s2016.sisctr.token.IDToken{
 	if(restriccion())
         return "Identificador: " + id + " linea: " + line + " columna: " + column;
 		
-   	throw new IllegalMonitorStateException  ("Exception: IdentificadorInvalido: Token: " + id + " linea: " + line + " columna: " + column);
+   	throw new IllegalMonitorStateException  ("Exception: Identificador Invalido: Token: " + id + " linea: " + line + " columna: " + column);
     }
 
 }
