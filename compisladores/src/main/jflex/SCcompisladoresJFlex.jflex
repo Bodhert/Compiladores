@@ -54,7 +54,7 @@ SpecialSymbol = "()"
 
 LiteralToken = [0-9]*|-[0-9]*
 
-IDToken = ([a-z]|[A-Z])*
+IDToken = ([a-z]|[A-Z]|[0-9]|"_")*
 
 %%
 
