@@ -39,12 +39,14 @@ public abstract class NLexer extends Lexer implements SCLexer {
 		else
 		    if(tipo.compareTo("SpecialSymbol") == 0) sctoken = new COSpecialSymbolToken(t.getCharPositionInLine(),t.getLine(),t.getText());
 		    else
-			if(tipo.compareTo("LiteralToken") == 0) sctoken = new COLiteralToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+			if(tipo.compareTo("LiteralIntToken") == 0) sctoken = new COLiteralToken(t.getCharPositionInLine(),t.getLine(),t.getText());
 			else
-			    if(tipo.compareTo("IDToken") == 0) sctoken = new COIDToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+				if(tipo.compareTo("LiteralStringToken") == 0) sctoken = new COLiteralToken(t.getCharPositionInLine(),t.getLine(),t.getText());
 			    else
-				throw new SCLexerException ("Excepcion: Token no reconocido: " + getText() + " linea: " + (getLine() + 1) + " columna: " + getCharPositionInLine());
-	return sctoken;
+			    	if(tipo.compareTo("IDToken") == 0) sctoken = new COIDToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+			    	else
+			    		throw new SCLexerException ("Excepcion: Token no reconocido: " + getText() + " linea: " + (getLine() + 1) + " columna: " + getCharPositionInLine());
+			    	return sctoken;
     }
 
 }

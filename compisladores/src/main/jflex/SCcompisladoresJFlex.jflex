@@ -52,7 +52,9 @@ SeparatorWord = ","
 
 SpecialSymbol = "()"
 
-LiteralToken = [0-9]*|-[0-9]*
+LiteralIntToken = ([0-9]*|-[0-9]*) 
+
+LiteralStringToken = "\""([^\n\"\\]*(\\[.\n])*)*"\""
 
 IDToken = ([a-z]|[A-Z]|[0-9]|"_")*
 
@@ -63,7 +65,8 @@ IDToken = ([a-z]|[A-Z]|[0-9]|"_")*
  {SeparatorWord}   { return new COSeparatorToken(yycolumn,yyline,yytext()); }
  {ReservedWord}    { return new COReservedWordToken(yycolumn,yyline,yytext()); }
  {Operator} 	   { return new COOperatorToken(yycolumn,yyline,yytext()); }
- {LiteralToken}	   { return new COLiteralToken(yycolumn,yyline,yytext()); }
+ {LiteralIntToken}	   { return new COLiteralToken(yycolumn,yyline,yytext()); }
+ {LiteralStringToken}  { return new COLiteralToken(yycolumn,yyline,yytext()); }
  {IDToken} 	   { return new COIDToken (yycolumn,yyline,yytext()); }
  {WhiteSpace}	   { /*ignore*/ }
  {Comment}	   { /*ignore*/ }

@@ -22,16 +22,14 @@ public class MaincompisladoresLexer
 		callJflex(fichero);
 	    }else if(args[0].equals("antlr")){
 		String fichero [] = new String[args.length-1];
-		System.out.println(args.length);
-		System.out.println(fichero.length);
+		
 		for(int i = 1; i < args.length;i++){
 		    fichero[i-1] = args[i];
 		}
 		callAntlr(fichero);
 	    }else if(args[0].equals("both")){
 		String fichero [] = new String[args.length-1];
-		System.out.println(args.length);
-		System.out.println(fichero.length);
+		
 		for(int i = 1; i < args.length;i++){
 		    fichero[i-1] = args[i];
 		}
@@ -64,7 +62,7 @@ public class MaincompisladoresLexer
 		    System.out.println(t);
 		    t = lexer.getNextToken();
 		}
-		System.out.println("------------");
+		
 	    }
 	    
 	    catch(SCLexerException e){

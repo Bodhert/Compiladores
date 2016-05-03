@@ -1,5 +1,7 @@
 
 package co.edu.eafit.dis.st0270.s2016.compisladores.token;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexer;
 import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexerException;
 import java.io.IOException;
@@ -28,10 +30,12 @@ public class COLiteralToken
 	String column = "" + super.getColumn();
 	String line = "" + super.getLine();
 	String id = super.getText();
-	
-	if(check())
+		
+	if(!(id.matches("((-|\\+)?[0-9]+(\\.[0-9]+)?)+")))
 	return "Literal: " + id + " linea: " + line + " columna: " + column;
-
+	else if(check())
+	return "Literal: " + id + " linea: " + line + " columna: " + column;
+	else
 	throw new IllegalMonitorStateException  ("Exception: NumberValueInvalid: Token: " + id + " linea: " + line + " columna: " + column);
     }
 
