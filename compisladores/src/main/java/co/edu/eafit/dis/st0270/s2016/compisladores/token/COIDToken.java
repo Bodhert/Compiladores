@@ -1,6 +1,6 @@
 
 package co.edu.eafit.dis.st0270.s2016.compisladores.token;
-import java.util.ArrayList;
+
 //import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken; //por que al extender debe ser toda esa ruta
 
 public  class COIDToken
@@ -12,11 +12,13 @@ extends co.edu.eafit.dis.st0270.s2016.sisctr.token.IDToken{
     }
     
     public boolean restriccion(){
-	String check = super.getText();
+      	String check = super.getText();
 	char first = check.charAt(0);
-	int cf = check.indexOf("0");
+	int cf =  check.indexOf("0");
+	//	System.out.println(cf);
 	if (check()){
-	    if(cf == check.length()-1){
+	    if(cf == check.length()-1 || cf == -1){
+		//	System.out.println(cf);
 		if(first >= '0' && first >= '9' ){ 
 		    return true;
 		}
@@ -31,20 +33,33 @@ extends co.edu.eafit.dis.st0270.s2016.sisctr.token.IDToken{
 	return false;
     }
 
+
+
     public boolean check(){
-	String check = super.getText();
-	int[] pos =  new int[check.length()];
-	for(int i = 0; i >= check.length(); i++ ){
-	    if("_" == check.substring(i,i + 1)){
-		pos[i] = i;
-	    }
-	    System.out.println("hola "+ pos[i]);
+	String cont = "_";
+	int j = 0;
+	int lifi = 0;
+	int si = 0;
+       	String check = super.getText();
+	int[] pos = new int[check.length()];
+	for (int i = -1; (i = check.indexOf(cont, i + 1)) != -1; ) {
+	    // System.out.println(i);
+	    pos[j] = i;
+	    si = si + 1;
+	    j++;
+	    
 	}
+	j=0;
+	while(j<si){
+	    lifi = pos[j]-pos[j+1];
+	    if(lifi == -1)break;
+	    j++;
+	}
+	if(lifi==-1)return false;
 	return true;
-
-
     }
-
+    
+    
     
     public String toString(){
 	String column = "" + super.getColumn();
