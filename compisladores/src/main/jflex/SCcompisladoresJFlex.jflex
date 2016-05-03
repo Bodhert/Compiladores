@@ -6,6 +6,8 @@ import co.edu.eafit.dis.st0270.s2016.compisladores.token.COLiteralToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COOperatorToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSeparatorToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSpecialSymbolToken;
+import co.edu.eafit.dis.st0270.s2016.compisladores.token.COStringToken;
+import co.edu.eafit.dis.st0270.s2016.compisladores.token.COIntToken;
 import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
 import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexer;
 import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexerException;
@@ -54,7 +56,7 @@ SpecialSymbol = "()"
 
 LiteralIntToken = ([0-9]*|-[0-9]*) 
 
-LiteralStringToken = "\""([^\n\"\\]*(\\[.\n])*)*"\""
+LiteralStringToken = "\""([^\n\"\\]*(\\[.\n])*)*"\"" | "_"
 
 IDToken = ([a-z]|[A-Z]|[0-9]|"_")*
 
@@ -65,12 +67,12 @@ IDToken = ([a-z]|[A-Z]|[0-9]|"_")*
  {SeparatorWord}   { return new COSeparatorToken(yycolumn,yyline,yytext()); }
  {ReservedWord}    { return new COReservedWordToken(yycolumn,yyline,yytext()); }
  {Operator} 	   { return new COOperatorToken(yycolumn,yyline,yytext()); }
- {LiteralIntToken}	   { return new COLiteralToken(yycolumn,yyline,yytext()); }
- {LiteralStringToken}  { return new COLiteralToken(yycolumn,yyline,yytext()); }
+ {LiteralIntToken}	   { return new COIntToken(yycolumn,yyline,yytext()); }
+ {LiteralStringToken}  { return new COStringToken(yycolumn,yyline,yytext()); }
  {IDToken} 	   { return new COIDToken (yycolumn,yyline,yytext()); }
  {WhiteSpace}	   { /*ignore*/ }
  {Comment}	   { /*ignore*/ }
 }
 
-[^]		 {throw new java.io.IOException ("Excepcion: Token no reconocido: " + yytext() + " linea: " + (yyline + 1) + " columna: " + yycolumn);}
+[^]		 {throw new java.io.IOException ("Excepcion: Lexema Invalido: " + yytext() + " linea: " + (yyline + 1) + " columna: " + yycolumn);}
 

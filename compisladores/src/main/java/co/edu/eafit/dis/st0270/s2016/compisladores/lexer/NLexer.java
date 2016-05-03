@@ -7,6 +7,10 @@ import co.edu.eafit.dis.st0270.s2016.compisladores.token.COLiteralToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COOperatorToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSeparatorToken;
 import co.edu.eafit.dis.st0270.s2016.compisladores.token.COSpecialSymbolToken;
+
+import co.edu.eafit.dis.st0270.s2016.compisladores.token.COIntToken;
+import co.edu.eafit.dis.st0270.s2016.compisladores.token.COStringToken;
+
 import co.edu.eafit.dis.st0270.s2016.sisctr.token.SCToken;
 import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexer;
 import co.edu.eafit.dis.st0270.s2016.sisctr.lexer.SCLexerException;
@@ -39,13 +43,13 @@ public abstract class NLexer extends Lexer implements SCLexer {
 		else
 		    if(tipo.compareTo("SpecialSymbol") == 0) sctoken = new COSpecialSymbolToken(t.getCharPositionInLine(),t.getLine(),t.getText());
 		    else
-			if(tipo.compareTo("LiteralIntToken") == 0) sctoken = new COLiteralToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+			if(tipo.compareTo("LiteralIntToken") == 0) sctoken = new COIntToken(t.getCharPositionInLine(),t.getLine(),t.getText());
 			else
-				if(tipo.compareTo("LiteralStringToken") == 0) sctoken = new COLiteralToken(t.getCharPositionInLine(),t.getLine(),t.getText());
+				if(tipo.compareTo("LiteralStringToken") == 0) sctoken = new COStringToken(t.getCharPositionInLine(),t.getLine(),t.getText());
 			    else
 			    	if(tipo.compareTo("IDToken") == 0) sctoken = new COIDToken(t.getCharPositionInLine(),t.getLine(),t.getText());
 			    	else
-			    		throw new SCLexerException ("Excepcion: Token no reconocido: " + getText() + " linea: " + (getLine() + 1) + " columna: " + getCharPositionInLine());
+			    		throw new SCLexerException ("Excepcion: Lexema Invalido: " + getText() + " linea: " + (getLine() + 1) + " columna: " + getCharPositionInLine());
 			    	return sctoken;
     }
 

@@ -30,7 +30,8 @@ public class COLiteralToken
 	String column = "" + super.getColumn();
 	String line = "" + super.getLine();
 	String id = super.getText();
-		
+	
+
 	if(!(id.matches("((-|\\+)?[0-9]+(\\.[0-9]+)?)+")))
 	return "Literal: " + id + " linea: " + line + " columna: " + column;
 	else if(check())

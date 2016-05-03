@@ -53,10 +53,10 @@ SpecialSymbol
 			: '()'
 			; 
 
-LiteralIntToken : '0' | ['1'..'9']['0'..'9']*   
+LiteralIntToken : '0' | ['1'..'9']['0'..'9']* 
 			    ;
 
-LiteralStringToken : '"'( ~('"'|'\n'|'\r') )*'"'
+LiteralStringToken : '"'( ~('"'|'\n'|'\r') )*'"' | '_'
 				   ;
 
 IDToken : (['a'-'z']|['A'-'Z'])*
