@@ -96,7 +96,7 @@ public class MaincompisladoresLexer
 		    System.out.println(t);
 		    t = lexer.getNextToken();
 		}
-		System.out.println("");
+		
 	    }
 	    
 	    catch(SCLexerException e){
