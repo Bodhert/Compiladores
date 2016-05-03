@@ -16,8 +16,6 @@ public class MaincompisladoresLexer
 	if(args.length > 0){
 	    if(args[0].equals("jflex")){
 		String fichero [] = new String[args.length-1];
-		System.out.println(args.length);
-		System.out.println(fichero.length);
 		for(int i = 1; i < args.length;i++){
 		    fichero[i-1] = args[i];
 		}
@@ -66,6 +64,7 @@ public class MaincompisladoresLexer
 		    System.out.println(t);
 		    t = lexer.getNextToken();
 		}
+		System.out.println("------------");
 	    }
 	    
 	    catch(SCLexerException e){
@@ -99,6 +98,7 @@ public class MaincompisladoresLexer
 		    System.out.println(t);
 		    t = lexer.getNextToken();
 		}
+		System.out.println("");
 	    }
 	    
 	    catch(SCLexerException e){
