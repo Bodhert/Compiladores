@@ -4,6 +4,12 @@ lexer grammar SCcompisladoresANTLRLexer;
 package co.edu.eafit.dis.st0270.s2016.compisladores.lexer;
 }
 
+
+options
+{
+ superClass = NLexer;
+}
+
 @lexer::rulecatch {
    catch (RecognitionException e) {
       throw e;

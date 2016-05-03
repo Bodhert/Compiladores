@@ -25,9 +25,11 @@ public class MaincompisladoresLexer
 	    }else if(args[0] == "antlr"){
 		//
 	    }else if(args[0] == "both"){
-		//llamo a ambos
+		callJflex(args);
+		//callAntlr(args);
 	    }else{
 		callJflex(args);
+		//callAntlr(args);
 	    }
 	    
 	}
@@ -63,6 +65,10 @@ public class MaincompisladoresLexer
 	    }
 	    
 	}
+    }
+
+    public static void callAntlr(String fichero[]){
 	
     }
+    
 }
