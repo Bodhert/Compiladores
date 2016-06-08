@@ -1,4 +1,6 @@
 // Generated from SCcompisladoresANTLRParser.g4 by ANTLR 4.5.3
+package co.edu.eafit.dis.st0270.s2016.compisladores.parser;
+
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import java.util.HashSet;
