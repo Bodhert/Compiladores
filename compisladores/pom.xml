@@ -181,6 +181,7 @@
 									</includes>
 									<excludes>
 										<exclude>SCcompisladoresANTLRDefVisitor.java</exclude>
+										<exclude>SCcompisladoresANTLRLetVisitor.java</exclude>
 									</excludes>
 									<followSymlinks>false</followSymlinks>
 								</fileset>

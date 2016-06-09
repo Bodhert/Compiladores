@@ -2,7 +2,7 @@
 package co.edu.eafit.dis.st0270.s2016.compisladores.parser;
 
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
-import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
+// import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import java.util.HashSet;
 import java.util.Set;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -83,9 +83,7 @@ public class SCcompisladoresANTLRDefVisitor extends SCcompisladoresANTLRParserBa
 	 */
 	@Override
 	public Set<String> visitLetL(SCcompisladoresANTLRParserParser.LetLContext ctx) {
-		Set<String> decllet = new HashSet<String>();
-		decllet.add(ctx.ID().getText());
-		return decllet;
+		return new HashSet<String>();
 	}
 	/**
 	 * {@inheritDoc}
