@@ -23,21 +23,26 @@ import java.util.List;
 public class SCcompisladoresANTLRLetVisitor extends SCcompisladoresANTLRParserBaseVisitor<Set<String>> {
 
   Set<String> declared;
-
+  Set<String> used;
   public SCcompisladoresANTLRLetVisitor(Set<String> variables){
     declared = variables;
+    used = new HashSet<String>();
   }
 
   public Set<String> getDeclared(){
     return declared;
   }
 
+  public Set<String> getUsed(){
+    return used;
+  }
+
   @Override
   public Set<String> visitCtrl(SCcompisladoresANTLRParserParser.CtrlContext ctx){
     Set<String> delcs =  visit(ctx.decls());
     Set<String> disp = visit(ctx.disp());
-    declared.addAll(delcs);
-    declared.addAll(disp);
+    used.addAll(delcs);
+    used.addAll(disp);
     return declared;
   }
   /**
@@ -99,7 +104,7 @@ public class SCcompisladoresANTLRLetVisitor extends SCcompisladoresANTLRParserBa
     Set<String> var = visit(ctx.disp());
     Set<String> defined =  new HashSet<String>();
 
-    if(declared.containsAll(var)) defined.add(id);
+    if(declared.containsAll(var)) declared.add(id);
     else baddefined.add(id);
 
     return var;
@@ -256,9 +261,12 @@ public class SCcompisladoresANTLRLetVisitor extends SCcompisladoresANTLRParserBa
    */
   @Override
   public Set<String> visitDelt3ID(SCcompisladoresANTLRParserParser.Delt3IDContext ctx) {
-    Set<String> id = new HashSet<String>();
-    id.add(ctx.ID().getText());
-    return id;
+    Set<String> setId = new HashSet<String>();
+    String id = ctx.ID().getText();
+    setId.add(id);
+    if(!(declared.contains(id))) baddefined.add(id);
+
+    return setId;
   }
   /**
    * {@inheritDoc}

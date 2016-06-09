@@ -36,28 +36,39 @@ public class MaincompisladoresParser{
         Set<String> usedletVars = comp.visit(tree);
         System.out.println("Bien Formado");
         Set<String> badformed = comp.getBadvariables();
-        Set<String> intr = new HashSet<String>(usedletVars);
-        intr.retainAll(badformed);
+        // for(String s: badformed){
+        //   System.out.println("badformed: " + s);
+        // }
+
+        // Set<String> intr = new HashSet<String>(usedletVars);
+        // intr.removeAll(badformed);
 
         Set<String> well = comp.getDeclared();
-        Set<String> intrwell = new HashSet<String>(usedletVars);
-        intrwell.retainAll(well);
+        // for(String s: well){
+        //   System.out.println("wellformed: " + s);
+        // }
+
+        Set<String> used = comp.getUsed();
+        used.removeAll(badformed);
+
+        // Set<String> intrwell = new HashSet<String>(usedletVars);
+        // intrwell.retainAll(well);
         // for(String j: usedletVars){
         //   System.out.println("let bien definida: " + j);
         // }
 
-        if(intr.size() > 0){
+        if(!(badformed.isEmpty())){
           System.out.println("Programa no valido");
           System.out.print("usa dipositivos: ");
           String result = "";
-          for(String k: intrwell){
+          for(String k: used){
             result +=  k +  ", ";
           }
           System.out.println(result.substring(0,result.length()-2));
 
           result = "";
           System.out.print("dipositivos mal formados: ");
-          for(String l: intr){
+          for(String l: badformed){
             result += l + ", ";
           }
           System.out.println(result.substring(0,result.length()-2));
@@ -66,7 +77,7 @@ public class MaincompisladoresParser{
           System.out.println("Programa valido");
           System.out.print("usa dipositivos: ");
           String result = "";
-          for(String k: intrwell){
+          for(String k: well){
             result +=  k +  ", ";
           }
           System.out.println(result.substring(0,result.length()-2));
@@ -75,7 +86,7 @@ public class MaincompisladoresParser{
     }catch(FileNotFoundException e){
       System.err.print(" No se encontro el fichero ");
     }catch(Exception e){
-      System.err.print(" mal formado ");
+      System.err.print(" mal formado " );
     }
   }
 }
