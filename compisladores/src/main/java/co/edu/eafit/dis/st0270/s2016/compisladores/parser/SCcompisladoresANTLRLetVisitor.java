@@ -22,14 +22,23 @@ import java.util.List;
  */
 public class SCcompisladoresANTLRLetVisitor extends SCcompisladoresANTLRParserBaseVisitor<Set<String>> {
 
-  // public SCcompisladoresANTLRLetVisitor(){
-  //
-  // }
+  Set<String> declared;
+
+  public SCcompisladoresANTLRLetVisitor(Set<String> variables){
+    declared = variables;
+  }
+
+  public Set<String> getDeclared(){
+    return declared;
+  }
 
   @Override
   public Set<String> visitCtrl(SCcompisladoresANTLRParserParser.CtrlContext ctx){
     Set<String> delcs =  visit(ctx.decls());
-    return delcs;
+    Set<String> disp = visit(ctx.disp());
+    declared.addAll(delcs);
+    declared.addAll(disp);
+    return declared;
   }
   /**
    * {@inheritDoc}
@@ -85,9 +94,20 @@ public class SCcompisladoresANTLRLetVisitor extends SCcompisladoresANTLRParserBa
    */
   @Override
   public Set<String> visitLetL(SCcompisladoresANTLRParserParser.LetLContext ctx) {
+
     String id =  ctx.ID().getText();
     Set<String> var = visit(ctx.disp());
+    Set<String> defined =  new HashSet<String>();
+
+    if(declared.containsAll(var)) defined.add(id);
+    else baddefined.add(id);
+
     return var;
+  }
+
+  Set<String> baddefined = new HashSet<String>();
+  public Set<String> getBadvariables(){
+    return baddefined;
   }
   /**
    * {@inheritDoc}
@@ -277,6 +297,7 @@ public class SCcompisladoresANTLRLetVisitor extends SCcompisladoresANTLRParserBa
       Set<String> aux = visit(t);
       disp.addAll(aux);
     }
+
     return disp;
   }
   /**
